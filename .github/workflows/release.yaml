@@ -1,6 +1,6 @@
 name: "Pr Opened"
 on:
-  pull_request:
+  push:
     branches:
       - "master"
 jobs:
@@ -8,7 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ contains(github.head_ref,'alpha') || contains(github.head_ref,'beta') || contains(github.head_ref,'feat') || contains(github.head_ref,'prerelease') }}
     steps:
-      - uses: actions/checkout@v1
-      - name: "E nui"
-        run: date
-      - run: env
+      - name: Semantic Release Action
+        uses: codfish/semantic-release-action@v1
