@@ -6,7 +6,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: "!contains(${{ github.ref }}, 'alpha')"
+    if: github.ref == "diego"
     steps:
       - uses: actions/checkout@v1
       - name: Test
