@@ -6,7 +6,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: ${{ contains(github.head_ref,'alpha') }}
+    if: ${{ contains(github.head_ref,'alpha') || contains(github.head_ref,'beta') || contains(github.head_ref,'feat') || contains(github.head_ref,'prerelease') }}
     steps:
       - uses: actions/checkout@v1
       - name: "E nui"
