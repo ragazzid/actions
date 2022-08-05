@@ -1,7 +1,7 @@
 name: "Pr Opened"
 on:
   pull_request:
-    banches:
+    branches:
       - "something/**"
 jobs:
   test:
