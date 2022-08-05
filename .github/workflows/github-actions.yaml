@@ -6,9 +6,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: ${{ github.ref != 'refs/heads/karina' }}
+    if: ${{ contains(github.head_ref,'karina' }}
     steps:
       - uses: actions/checkout@v1
       - name: "${{ github.ref }} "
         run: date
-      - run: echo "Deploying to production server on branch $GITHUB_REF"
+      - run: env
