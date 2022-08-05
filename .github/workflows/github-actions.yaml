@@ -2,9 +2,10 @@ name: "Pr Opened"
 on:
   pull_request:
     branches:
-      - "something/**"
+      - "master"
 jobs:
   test:
+    if: ${{ contains(github.ref, "feat")  }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
