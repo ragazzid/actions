@@ -2,7 +2,7 @@ name: "Pr Opened"
 on:
   pull_request:
     banches:
-      - "something/**"
+      - "master"
 jobs:
   test:
     if: startsWith(github.ref, 'refs/tags')
