@@ -6,8 +6,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: "${{ github.ref == 'karina' }}"
+    if: "${{ github.ref == 'refs/heads/karina' }}"
     steps:
       - uses: actions/checkout@v1
-      - name: github.ref
+      - name: "${{ github.ref }} "
         run: date
