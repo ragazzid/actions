@@ -6,7 +6,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: ${{ contains(github.ref'feat') || contains(github.ref,'karina')}}
+    if: ${{ contains(github.ref,'feat') || contains(github.ref,'karina')}}
     steps:
       - uses: actions/checkout@v1
       - name: Test
