@@ -5,9 +5,10 @@ on:
       - "master"
 jobs:
   test:
-    if: contains(${{ github.ref }}, 'feat') or contains(${{ github.ref }}, 'release') or contains(${{ github.ref }}, 'alpha')
     runs-on: ubuntu-latest
+    if: ${{ contains(github.head_ref,'alpha') || contains(github.head_ref,'beta') || contains(github.head_ref,'feat') || contains(github.head_ref,'prerelease') }}
     steps:
       - uses: actions/checkout@v1
-      - name: Test
+      - name: "E nui"
         run: date
+      - run: env
