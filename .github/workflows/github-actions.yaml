@@ -12,11 +12,8 @@ jobs:
       - name: "E nui"
         run: date
       - run: env
-      - uses: ./.github/workflows/reusar.yaml
-        with:
-          name: diego
-        
     
-  # outro:
-  #   uses: ./.github/workflows/reusar.yaml
-  #     with: github
+  outro:
+    uses: ./.github/workflows/reusar.yaml
+    with:
+      name: "Diego"
