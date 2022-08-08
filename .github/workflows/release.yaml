@@ -1,14 +1,23 @@
-name: "Pr Opened"
-env:
-  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+
+name: Merged Pull Request
+
+# only trigger on pull request closed events
 on:
-  push:
+  pull_request_target:
+    types: [ closed ]
     branches:
-      - "master"
+      - main
+
 jobs:
-  deploy:
+  merge_job:
+    # this job will only run if the PR has been merged
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Semantic Release Action
-        uses: codfish/semantic-release-action@v1
+      - name: "Code Checkout"
+        uses: actions/checkout@master
+      - name: Bump version and push tag
+        uses: hennejg/github-tag-action@v4.1.jh1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
