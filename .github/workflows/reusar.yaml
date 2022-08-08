@@ -11,5 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: "Inicio"
+        run: date
       - name: "Bla"
         run: echo ${{ inputs.name }}
+      - name: "Fim"
+        run: date

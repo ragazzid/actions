@@ -8,10 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ contains(github.head_ref,'alpha') || contains(github.head_ref,'beta') || contains(github.head_ref,'feat') || contains(github.head_ref,'prerelease') }}
     steps:
+      - name: "Inicio"
+        run: date
       - uses: actions/checkout@v1
       - name: "E nui"
         run: date
       - run: env
+      - name: "Dorme dorme"
+        run: sleep 10
+      - name: "Fim"
+        run: date
     
   outro:
     uses: ./.github/workflows/reusar.yaml
