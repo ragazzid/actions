@@ -8,6 +8,7 @@ on:
     types: [ closed ]
     branches:
       - main
+      - master
 
 jobs:
   merge_job:
