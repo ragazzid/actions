@@ -16,5 +16,5 @@ jobs:
     
   outro:
     uses: ./.github/workflows/reusar.yaml
-    # with:
-    #   user: "Diego"
+    with:
+      user: "Diego"
