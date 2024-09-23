@@ -1,0 +1,22 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print Production environment variables
+        run: |
+          echo "Production DB Host: $PROD_DB_HOST"
+          echo "Production DB Password: ${{ secrets.DB_PASSWORD }}"
+        env:
+          PROD_DB_HOST: ${{ vars.PROD_DB_HOST }}
