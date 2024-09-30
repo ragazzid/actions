@@ -7,7 +7,7 @@ on:
       - dev
 
 jobs:
-  build-test-analyze:
+  web:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
