@@ -1,0 +1,25 @@
+name: WebTest
+run-name: WebTest
+on:
+  push:
+    branches-ignore:
+      - main
+      - dev
+
+jobs:
+  build-test-analyze:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/actions
+          path: actions
+
+
+      - name: WebTest
+        uses: ./actions/.github/actions/web
+        id: build-test-analzye
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

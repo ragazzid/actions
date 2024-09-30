@@ -1,0 +1,24 @@
+name: Web Test
+description: "Web Test"
+inputs:
+  GITHUB_TOKEN:
+    description: "github token"
+    required: true
+runs:
+  using: 'composite'
+  steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Install Docker Compose
+        shell: bash
+        run: |
+          docker --version
+          sudo curl -L "https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+          docker-compose --version  # Verify installation
+          
+      - name: Setup Cosmos DB Emulator
+        shell: bash
+        run: |
+          cat setup/docker/docker-compose.yaml

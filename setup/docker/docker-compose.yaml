@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "4881:80"
+    networks:
+      - nginx_network
+
+volumes:
+  nginx_data:
+
+networks:
+  nginx_network:
