@@ -29,7 +29,5 @@ runs:
       - name: Setup Cosmos DB Emulator
         shell: bash
         run: |
-          ls ../
-          ls ../../
-          ls ../../../
           cat setup/docker/docker-compose.yaml
+          docker-compose -f setup/docker/docker-compose.yaml up -d
