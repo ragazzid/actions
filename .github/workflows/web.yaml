@@ -10,16 +10,14 @@ jobs:
   build-test-analyze:
     runs-on: ubuntu-latest
     steps:
-      
       - uses: actions/checkout@v4
         with:
           sparse-checkout: |
             .github/actions
           path: actions
 
-
       - name: WebTest
-        uses: ./actions/.github/actions/web
-        id: build-test-analzye
+        uses: ./web
+        id: WebTest
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
