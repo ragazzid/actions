@@ -22,3 +22,8 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REF: ${{ github.ref }}
+      - name: Teste123
+        shell: bash
+        run: |
+          ls
+          curl -v http://localhost:4881
