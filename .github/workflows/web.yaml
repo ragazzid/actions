@@ -14,10 +14,11 @@ jobs:
         with:
           sparse-checkout: |
             .github/actions
-          path: actions
+        #   path: .github/actions
 
       - name: WebTest
-        uses: ./web
+        uses: ./.github/actions/web
         id: WebTest
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REF: ${{ github.ref }}

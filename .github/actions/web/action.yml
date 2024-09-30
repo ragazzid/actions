@@ -4,15 +4,23 @@ inputs:
   GITHUB_TOKEN:
     description: "github token"
     required: true
+  REF:
+    description: "github ref"
+    required: true
 runs:
   using: 'composite'
   steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.REF }}
 
       - name: Install Docker Compose
         shell: bash
         run: |
+          pwd
+          ls
+          ls *
           docker --version
           sudo curl -L "https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
           sudo chmod +x /usr/local/bin/docker-compose
@@ -21,4 +29,7 @@ runs:
       - name: Setup Cosmos DB Emulator
         shell: bash
         run: |
+          ls ../
+          ls ../../
+          ls ../../../
           cat setup/docker/docker-compose.yaml
