@@ -13,8 +13,19 @@ jobs:
       - name: Send message to Microsoft Teams
         run: |
           curl -H "Content-Type: application/json" \
-               -d '{
-                    "title": "GitHub Action Notification",
-                    "text": "🚀 A new push was made to the `main` branch by '${{ github.actor }}'.\nCommit: `${{ github.sha }}`"
-                   }' \
+          -d '{
+            "@type": "MessageCard",
+            "@context": "http://schema.org/extensions",
+            "summary": "GitHub Action Notification",
+            "themeColor": "0076D7",
+            "title": "New Push to Main Branch",
+            "sections": [{
+              "activityTitle": "**${{ github.actor }}** pushed to **main**",
+              "facts": [
+                { "name": "Commit", "value": "${{ github.sha }}" },
+                { "name": "Repo", "value": "${{ github.repository }}" }
+              ],
+              "markdown": true
+            }]
+          }' \
                ${{ secrets.TEAMS_WEBHOOK_URL }}
